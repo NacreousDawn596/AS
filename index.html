@@ -80,7 +80,7 @@
         console.log("as you saw.")
         console.log("just shut the fuck up.")
         window.onload = () => {
-            e = window.location.href.split("%20").join(" ").split("?")[1].split("=").slice(0, -1);
+            e = decodeURI(window.location.href).split("?")[1].split("=").slice(0, -1);
             e.forEach(w => {
                 p = document.createElement('p');
                 p.textContent = w;
@@ -88,7 +88,7 @@
             })
             p = document.createElement('p');
             p.id = "AS";
-            p.textContent = window.location.href.split("=").reverse()[0].split("%20").join(" ");
+            p.textContent = decodeURI(window.location.href).split("=").reverse()[0];
             document.getElementById("body").appendChild(p);
         } 
     </script>
