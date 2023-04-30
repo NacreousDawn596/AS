@@ -42,15 +42,14 @@
             width: 100vw;
             height: 100vh;
             margin: 0;
-            display: flex;
+            display:flex;
             justify-content: center;
             align-items: center;
             scroll-snap-align: start;
+            word-break: break;
+            overflow-wrap: anywhere;
             color: aliceblue;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         #AS{
@@ -78,15 +77,27 @@
     </style>
     <script>
         console.clear()
-        console.write("as you saw.")
-        console.write("just shut the fuck up.")
+        console.log("as you saw.")
+        console.log("just shut the fuck up.")
+        window.onload = () => {
+            e = window.location.href.split("%20").join(" ").split("?")[1].split("=").slice(0, -1);
+            e.forEach(w => {
+                p = document.createElement('p');
+                p.textContent = w;
+                document.getElementById("body").appendChild(p);
+            })
+            p = document.createElement('p');
+            p.id = "AS";
+            p.textContent = window.location.href.split("=").reverse()[0].split("%20").join(" ");
+            document.getElementById("body").appendChild(p);
+        } 
     </script>
 </head>
-<body>
-    <p>shut the fuck up.</p>
+<body id="body">
+    <!--<p>shut the fuck up.</p>
     <p>or don't.</p>
     <p>we won't care.</p>
     <p>or shall we?</p>
-    <p id="AS">[ A S ]</p>
+    <p id="AS">[ A S ]</p>-->
 </body>
 </html>
